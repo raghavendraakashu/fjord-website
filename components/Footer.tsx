@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-slate-950 mb-8 text-[10px] uppercase tracking-[0.3em]">Connect</h4>
             <ul className="space-y-4 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              <li><a href="mailto:fjord.build@gmail.com?subject=Project Inquiry — FJORD" className="hover:text-blue-600 transition-colors">Email</a></li>
+              <li><a href="https://mail.google.com/mail/?view=cm&to=fjord.build@gmail.com&su=Project%20Inquiry%20—%20FJORD" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Email Us</a></li>
               <li><a href="https://instagram.com/fjord_build" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Instagram</a></li>
             </ul>
           </div>
