@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
               Engineering the high-performance digital future. Remote-first and globally distributed, FJORD delivers technical excellence from India to the world.
             </p>
           </div>
-          
+
           <div>
             <h4 className="font-bold text-slate-950 mb-8 text-[10px] uppercase tracking-[0.3em]">Studio</h4>
             <ul className="space-y-4 text-[11px] font-bold uppercase tracking-wider text-slate-400">
@@ -31,12 +31,12 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-slate-950 mb-8 text-[10px] uppercase tracking-[0.3em]">Connect</h4>
             <ul className="space-y-4 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              <li><a href="mailto:hello@fjord.studio" className="hover:text-blue-600 transition-colors">Email</a></li>
+              <li><a href="mailto:fjord.build@gmail.com" className="hover:text-blue-600 transition-colors">Email</a></li>
               <li><a href="#" className="hover:text-blue-600 transition-colors">Instagram</a></li>
             </ul>
           </div>
         </div>
-        
+
         <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
             © {new Date().getFullYear()} FJORD DIGITAL ENGINEERING.

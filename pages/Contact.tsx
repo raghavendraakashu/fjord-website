@@ -34,18 +34,10 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-bold uppercase tracking-ultra text-slate-400 mb-1">New Partnerships</h4>
-                    <p className="text-lg font-bold text-slate-950 tracking-tight">hello@fjord.studio</p>
+                    <p className="text-lg font-bold text-slate-950 tracking-tight">fjord.build@gmail.com</p>
                   </div>
                 </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center shrink-0">
-                    <Zap className="w-5 h-5 text-slate-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-ultra text-slate-400 mb-1">Technical Support</h4>
-                    <p className="text-lg font-bold text-slate-950 tracking-tight">partners@fjord.studio</p>
-                  </div>
-                </div>
+
               </div>
             </motion.div>
           </div>
