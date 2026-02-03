@@ -39,12 +39,14 @@ const Contact: React.FC = () => {
           <div className="lg:col-span-7">
             <div className="bg-slate-50 p-10 md:p-16 rounded-[3rem] border border-slate-100">
               <form action="https://formspree.io/f/xkozlwld" method="POST" className="space-y-12">
+                <input type="hidden" name="_subject" value="New inquiry — FJORD" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-3">
                     <label className="text-[10px] font-bold uppercase tracking-ultra text-slate-400">Name</label>
                     <input
                       required
                       type="text"
+                      name="name"
                       className="w-full bg-white border border-slate-100 rounded-2xl px-6 py-5 focus:outline-none focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 transition-all font-medium placeholder:text-slate-300"
                       placeholder="Your Identity"
                     />
@@ -54,6 +56,7 @@ const Contact: React.FC = () => {
                     <input
                       required
                       type="email"
+                      name="email"
                       className="w-full bg-white border border-slate-100 rounded-2xl px-6 py-5 focus:outline-none focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 transition-all font-medium placeholder:text-slate-300"
                       placeholder="Electronic Mail"
                     />
@@ -62,7 +65,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-3">
                   <label className="text-[10px] font-bold uppercase tracking-ultra text-slate-400">Service Required</label>
                   <div className="relative">
-                    <select className="w-full bg-white border border-slate-100 rounded-2xl px-6 py-5 focus:outline-none focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 transition-all appearance-none cursor-pointer font-medium text-slate-600">
+                    <select name="service" className="w-full bg-white border border-slate-100 rounded-2xl px-6 py-5 focus:outline-none focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 transition-all appearance-none cursor-pointer font-medium text-slate-600">
                       <option>Web Application Development</option>
                       <option>Platform Engineering</option>
                       <option>Identity & UX Design</option>
@@ -76,6 +79,7 @@ const Contact: React.FC = () => {
                   <textarea
                     required
                     rows={5}
+                    name="message"
                     className="w-full bg-white border border-slate-100 rounded-2xl px-6 py-5 focus:outline-none focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 transition-all font-medium placeholder:text-slate-300"
                     placeholder="Please outline your technical requirements..."
                   />
