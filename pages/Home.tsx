@@ -29,25 +29,25 @@ export default function Home() {
 
   const maskReveal: Variants = {
     hidden: { y: "100%", opacity: 0 },
-    show: { 
-      y: 0, 
+    show: {
+      y: 0,
       opacity: 1,
-      transition: { 
-        duration: 1.2, 
+      transition: {
+        duration: 1.2,
         ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
-      } 
+      }
     }
   };
 
   const imageReveal: Variants = {
     hidden: { clipPath: "inset(0 100% 0 0)", scale: 1.1 },
-    show: { 
-      clipPath: "inset(0 0% 0 0)", 
+    show: {
+      clipPath: "inset(0 0% 0 0)",
       scale: 1,
-      transition: { 
-        duration: 1.5, 
+      transition: {
+        duration: 1.5,
         ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
-      } 
+      }
     }
   };
 
@@ -55,7 +55,7 @@ export default function Home() {
     <div className="overflow-hidden">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen pt-40 pb-24 mesh-gradient flex items-center overflow-hidden">
-        <motion.div 
+        <motion.div
           style={{ y: backgroundY }}
           className="absolute inset-0 z-0 pointer-events-none opacity-[0.05] flex items-end justify-center"
         >
@@ -75,7 +75,7 @@ export default function Home() {
                   Engineering high-performance digital products
                 </motion.span>
               </header>
-              
+
               <div className="overflow-hidden mb-10">
                 <motion.h1 variants={maskReveal} className="text-6xl md:text-[8rem] font-bold tracking-tighter text-slate-950 leading-[0.9] text-balanced">
                   Digital <br />
@@ -83,7 +83,7 @@ export default function Home() {
                 </motion.h1>
               </div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 1 }}
@@ -92,12 +92,12 @@ export default function Home() {
                 <p className="text-xl md:text-2xl text-slate-500 mb-6 leading-relaxed font-light">
                   FJORD is an independent, remote-first web development team. We build and design high-performance web applications for partners that value precision and scalability.
                 </p>
-                
+
                 {/* Emotional Hook */}
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-14">
                   Focused on <span className="text-blue-600">engineering integrity</span> and technical craftsmanship.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-8">
                   <Link to="/contact" className="px-12 py-6 bg-slate-950 text-white font-semibold rounded-full hover:bg-slate-800 transition-all flex items-center justify-center group shadow-2xl shadow-slate-200">
                     Initiate Project
@@ -117,10 +117,10 @@ export default function Home() {
       <section className="bg-slate-50 py-12 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-40 grayscale contrast-125">
-             <span className="text-[10px] font-bold uppercase tracking-[0.4em]">High-performance engineering</span>
-             <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Security-first approach</span>
-             <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Optimized UI Blueprints</span>
-             <span className="hidden lg:inline text-[10px] font-bold uppercase tracking-[0.4em]">Structural integrity by default</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em]">High-performance engineering</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Security-first approach</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Optimized UI Blueprints</span>
+            <span className="hidden lg:inline text-[10px] font-bold uppercase tracking-[0.4em]">Structural integrity by default</span>
           </div>
         </div>
       </section>
@@ -133,7 +133,7 @@ export default function Home() {
               <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px]">
                 Core Competencies
               </motion.span>
-              <motion.h2 
+              <motion.h2
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
@@ -157,13 +157,18 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 1 }}
-                className="group p-12 bg-slate-50 rounded-[3rem] hover:bg-slate-950 hover:text-white transition-all duration-700"
+                className="group p-12 bg-slate-50 rounded-[3rem] hover:bg-slate-950 hover:text-white transition-all duration-700 relative"
               >
-                <div className="w-12 h-12 bg-white text-slate-950 rounded-2xl flex items-center justify-center mb-12 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                {service.href && (
+                  <Link to={service.href} className="absolute inset-0 z-10">
+                    <span className="sr-only">View {service.title}</span>
+                  </Link>
+                )}
+                <div className="w-12 h-12 bg-white text-slate-950 rounded-2xl flex items-center justify-center mb-12 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 relative z-20 pointer-events-none">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-6 tracking-tight">{service.title}</h3>
-                <p className="opacity-60 text-sm leading-relaxed font-light">{service.description}</p>
+                <h3 className="text-xl font-bold mb-6 tracking-tight relative z-20 pointer-events-none">{service.title}</h3>
+                <p className="opacity-60 text-sm leading-relaxed font-light relative z-20 pointer-events-none">{service.description}</p>
               </motion.article>
             ))}
           </div>
@@ -224,16 +229,16 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent pointer-events-none" />
                 </motion.div>
                 <div className="flex justify-between items-start">
-                    <motion.div 
-                      initial={{ y: 20, opacity: 0 }} 
-                      whileInView={{ y: 0, opacity: 1 }} 
-                      transition={{ delay: 0.5 + (idx * 0.2) }}
-                      className="max-w-md"
-                    >
-                        <span className="text-[10px] uppercase tracking-[0.3em] text-blue-400 font-bold">{project.category}</span>
-                        <h3 className="text-4xl font-bold mt-4 mb-6 tracking-tight group-hover:text-blue-400 transition-colors duration-500">{project.title}</h3>
-                        <p className="text-slate-400 text-lg font-light leading-relaxed">{project.description}</p>
-                    </motion.div>
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 + (idx * 0.2) }}
+                    className="max-w-md"
+                  >
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-blue-400 font-bold">{project.category}</span>
+                    <h3 className="text-4xl font-bold mt-4 mb-6 tracking-tight group-hover:text-blue-400 transition-colors duration-500">{project.title}</h3>
+                    <p className="text-slate-400 text-lg font-light leading-relaxed">{project.description}</p>
+                  </motion.div>
                 </div>
               </motion.article>
             ))}

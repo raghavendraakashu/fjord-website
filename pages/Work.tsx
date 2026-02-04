@@ -1,27 +1,28 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion, Variants } from 'framer-motion';
 import { PROJECTS } from '../constants.tsx';
 
 export default function Work() {
   const imageReveal: Variants = {
     hidden: { clipPath: "inset(100% 0 0 0)", scale: 1.2 },
-    show: { 
-      clipPath: "inset(0% 0 0 0)", 
+    show: {
+      clipPath: "inset(0% 0 0 0)",
       scale: 1,
-      transition: { 
-        duration: 1.4, 
+      transition: {
+        duration: 1.4,
         ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
-      } 
+      }
     }
   };
 
   const textFade: Variants = {
     hidden: { opacity: 0, y: 20 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: "easeOut" } 
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   };
 
@@ -49,25 +50,75 @@ export default function Work() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
-              className="group"
+              className="group cursor-pointer"
             >
-              <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] mb-10 bg-slate-50">
-                <motion.img
-                  variants={imageReveal}
-                  src={project.image}
-                  alt={`Project: ${project.title} - ${project.category}`}
-                  className="object-cover w-full h-full transition-transform duration-[3s] group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
-              <motion.div variants={textFade} className="flex justify-between items-start">
-                <div>
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">{project.category}</span>
-                  <h2 className="text-4xl font-bold mt-4 text-slate-950 group-hover:text-blue-600 transition-colors duration-500">{project.title}</h2>
-                  <p className="text-slate-500 mt-6 max-w-sm text-lg font-light leading-relaxed">{project.description}</p>
-                </div>
-                <time className="text-slate-300 font-bold text-xs mt-1 tracking-widest">{project.year}</time>
-              </motion.div>
+              {project.href && project.href.startsWith('http') ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${project.title} project in new tab`}
+                  className="block"
+                >
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] mb-10 bg-slate-50">
+                    <motion.img
+                      variants={imageReveal}
+                      src={project.image}
+                      alt={`Project: ${project.title} - ${project.category}`}
+                      className="object-cover w-full h-full transition-transform duration-[3s] group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </div>
+                  <motion.div variants={textFade} className="flex justify-between items-start">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">{project.category}</span>
+                      <h2 className="text-4xl font-bold mt-4 text-slate-950 group-hover:text-blue-600 transition-colors duration-500">{project.title}</h2>
+                      <p className="text-slate-500 mt-6 max-w-sm text-lg font-light leading-relaxed">{project.description}</p>
+                    </div>
+                    <time className="text-slate-300 font-bold text-xs mt-1 tracking-widest">{project.year}</time>
+                  </motion.div>
+                </a>
+              ) : project.slug ? (
+                <Link to={`/work/${project.slug}`}>
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] mb-10 bg-slate-50">
+                    <motion.img
+                      variants={imageReveal}
+                      src={project.image}
+                      alt={`Project: ${project.title} - ${project.category}`}
+                      className="object-cover w-full h-full transition-transform duration-[3s] group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </div>
+                  <motion.div variants={textFade} className="flex justify-between items-start">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">{project.category}</span>
+                      <h2 className="text-4xl font-bold mt-4 text-slate-950 group-hover:text-blue-600 transition-colors duration-500">{project.title}</h2>
+                      <p className="text-slate-500 mt-6 max-w-sm text-lg font-light leading-relaxed">{project.description}</p>
+                    </div>
+                    <time className="text-slate-300 font-bold text-xs mt-1 tracking-widest">{project.year}</time>
+                  </motion.div>
+                </Link>
+              ) : (
+                <>
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-[2.5rem] mb-10 bg-slate-50">
+                    <motion.img
+                      variants={imageReveal}
+                      src={project.image}
+                      alt={`Project: ${project.title} - ${project.category}`}
+                      className="object-cover w-full h-full transition-transform duration-[3s] group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </div>
+                  <motion.div variants={textFade} className="flex justify-between items-start">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">{project.category}</span>
+                      <h2 className="text-4xl font-bold mt-4 text-slate-950 group-hover:text-blue-600 transition-colors duration-500">{project.title}</h2>
+                      <p className="text-slate-500 mt-6 max-w-sm text-lg font-light leading-relaxed">{project.description}</p>
+                    </div>
+                    <time className="text-slate-300 font-bold text-xs mt-1 tracking-widest">{project.year}</time>
+                  </motion.div>
+                </>
+              )}
             </motion.article>
           ))}
         </section>

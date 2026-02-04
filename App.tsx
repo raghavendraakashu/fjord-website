@@ -8,6 +8,8 @@ import Work from './pages/Work.tsx';
 import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
 
+import FjordFlow from './pages/work/fjord-flow.tsx';
+
 // ScrollToTop component to ensure route changes start at the top
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -27,6 +29,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/work/fjord-flow" element={<FjordFlow />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

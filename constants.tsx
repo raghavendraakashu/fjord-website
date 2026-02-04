@@ -13,11 +13,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '2',
-    title: 'Ethos Global Market',
-    category: 'Commerce / Platform',
-    year: '2023',
-    description: 'A global B2B marketplace built on a headless architecture, providing low-latency browsing and secure multi-currency transaction management.',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1200'
+    title: 'The Tailor House',
+    category: 'Brand Website',
+    description: 'A premium bespoke tailoring website designed to showcase craftsmanship, material quality, and brand identity through a refined, conversion-focused digital experience. Designed to convert high-intent visitors into bespoke clients.',
+    image: '/images/work/the-tailor-house.jpg',
+    tags: ['Branding', 'Web Design', 'Luxury'],
+    href: 'https://the-tailor-house.vercel.app',
+    year: '2026'
   },
   {
     id: '3',
@@ -26,6 +28,18 @@ export const PROJECTS: Project[] = [
     year: '2024',
     description: 'A high-performance data visualization platform designed for agricultural research, focusing on predictive modeling and responsive UX.',
     image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200'
+  },
+  {
+    id: '4',
+    title: 'FJORD Flow',
+    category: 'Automation Demo',
+    subtitle: 'Automation Demo',
+    description: 'A visual demonstration of how we design event-driven automation systems and workflow orchestration for modern businesses.',
+    tags: ['Automation', 'Dashboards', 'Internal Tools'],
+    href: 'https://fjord-flow.vercel.app',
+    year: '2026',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71', // placeholder
+    slug: 'fjord-flow'
   }
 ];
 
@@ -53,7 +67,8 @@ export const SERVICES: Service[] = [
   {
     title: 'Automation Services',
     description: 'We streamline operations by automating complex workflows and integrating disparate tools, reducing manual effort through reliable, modern web systems.',
-    icon: <Zap className="w-5 h-5" />
+    icon: <Zap className="w-5 h-5" />,
+    href: '/work/fjord-flow'
   },
   {
     title: 'Data Visualization',
