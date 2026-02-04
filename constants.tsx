@@ -49,6 +49,16 @@ export const SERVICES: Service[] = [
     title: 'Technical Security',
     description: 'We implement security-first development practices and rigorous optimization audits to protect your data and maintain system integrity.',
     icon: <ShieldCheck className="w-5 h-5" />
+  },
+  {
+    title: 'Automation Services',
+    description: 'We streamline operations by automating complex workflows and integrating disparate tools, reducing manual effort through reliable, modern web systems.',
+    icon: <Zap className="w-5 h-5" />
+  },
+  {
+    title: 'Data Visualization',
+    description: 'We design interactive dashboards and visual reporting systems that turn raw data into clear, actionable insights for better decision-making.',
+    icon: <Layers className="w-5 h-5" />
   }
 ];
 
